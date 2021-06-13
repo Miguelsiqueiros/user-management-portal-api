@@ -11,4 +11,4 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 FROM openjdk:11-jre-slim
 COPY --from=build /home/app/target/user-portal-0.0.1-SNAPSHOT.jar /usr/local/lib/user-portal.jar
-ENTRYPOINT ["java","-jar","/usr/local/lib/user-portal.jar"]
+ENTRYPOINT ["java","-jar","/usr/local/lib/user-portal.jar", "--server.port=${PORT:8080}"]
