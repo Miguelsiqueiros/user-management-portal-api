@@ -50,7 +50,7 @@ public class UserController {
         return userRepository.save(user).getId();
     }
 
-    @DeleteMapping("/users/byId{id}")
+    @DeleteMapping("/users/byId/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUser(@PathVariable(value = "id")Integer id) {
         var user = userRepository.findById(id);
